@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21.0.2"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.restaurant.pos.ui.controller.TablesController"
+      spacing="12"
+      styleClass="tables-root">
+    <Label text="Столы" styleClass="tables-title"/>
+    <TilePane fx:id="tablesPane" hgap="12" vgap="12" prefColumns="3" styleClass="tables-grid"/>
+</VBox>
+
