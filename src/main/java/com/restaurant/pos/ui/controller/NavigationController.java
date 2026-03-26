@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 import com.restaurant.pos.service.WaiterPosService;
+import com.restaurant.pos.service.EmployeeStorageService;
 
 public class NavigationController {
 
@@ -35,6 +36,8 @@ public class NavigationController {
 
     // Simple UI-only views
     private EmployeesView employeesView;
+
+    private EmployeeStorageService employeeStorageService;
 
     // Services for views
     private com.restaurant.pos.service.AnalyticsService analyticsService;
@@ -247,7 +250,7 @@ public class NavigationController {
             return;
         }
         if (employeesView == null) {
-            employeesView = new EmployeesView();
+            employeesView = new EmployeesView(employeeStorageService);
         }
         mainWindow.setHeaderTitle("Employees");
         mainWindow.showView(employeesView);
@@ -266,6 +269,10 @@ public class NavigationController {
     
     public void setAnalyticsService(com.restaurant.pos.service.AnalyticsService analyticsService) {
         this.analyticsService = analyticsService;
+    }
+
+    public void setEmployeeStorageService(EmployeeStorageService employeeStorageService) {
+        this.employeeStorageService = employeeStorageService;
     }
 
     /**

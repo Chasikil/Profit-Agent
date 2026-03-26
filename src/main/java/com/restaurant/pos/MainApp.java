@@ -242,6 +242,7 @@ public class MainApp extends Application {
         navigationController.setWaiterController(waiterController);
         navigationController.setMenuController(menuController);
         navigationController.setSalaryController(salaryController);
+        navigationController.setEmployeeStorageService(employeeStorageService);
         InventoryController inventoryController = new InventoryController(inventoryService, appContext);
         navigationController.setInventoryController(inventoryController);
         AnalyticsController analyticsController = new AnalyticsController(biAnalyticsService, employeeStorageService, analyticsService, reportExportService);

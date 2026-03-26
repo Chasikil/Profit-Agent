@@ -3,6 +3,7 @@ package com.restaurant.pos.service.impl;
 import com.restaurant.pos.domain.enums.Role;
 import com.restaurant.pos.domain.model.Employee;
 import com.restaurant.pos.service.EmployeeStorageService;
+import com.restaurant.pos.seed.EmployeeSeeder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,18 +49,9 @@ public class InMemoryEmployeeStorageService implements EmployeeStorageService {
         if (!employeesById.isEmpty()) {
             return;
         }
-        saveEmployee(createEmployee(1L, "Ivan", Role.WAITER));
-        saveEmployee(createEmployee(2L, "Anna", Role.WAITER));
-        saveEmployee(createEmployee(3L, "Maria", Role.WAITER));
-        saveEmployee(createEmployee(4L, "Admin", Role.ADMIN));
-    }
-
-    private static Employee createEmployee(Long id, String name, Role role) {
-        Employee e = new Employee();
-        e.setId(id);
-        e.setName(name);
-        e.setRole(role);
-        e.setActive(true);
-        return e;
+        for (Employee e : EmployeeSeeder.createDefaultEmployees()) {
+            // Keep IDs from seeder to stay consistent across the app.
+            saveEmployee(e);
+        }
     }
 }
